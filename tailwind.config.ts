@@ -61,7 +61,17 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				metandis: {
+					navy: 'hsl(var(--metandis-navy))',
+					green: 'hsl(var(--metandis-green))',
+					sage: 'hsl(var(--sage))',
+					slate: 'hsl(var(--slate))',
+					'off-white': 'hsl(var(--off-white))'
 				}
+			},
+			fontFamily: {
+				inter: ['Inter', 'system-ui', 'sans-serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

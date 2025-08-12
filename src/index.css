@@ -8,35 +8,43 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Metandis Brand Colors */
+    --metandis-navy: 210 82% 16%;      /* #0B2242 */
+    --metandis-green: 149 77% 37%;     /* #1BAA64 */
+    --sage: 137 38% 73%;               /* #9CCFAD */
+    --slate: 210 22% 35%;              /* #4A5B6C */
+    --off-white: 213 19% 97%;          /* #F6F7F9 */
+
+    /* Base Design System */
+    --background: 213 19% 97%;
+    --foreground: 210 82% 16%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 210 82% 16%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 210 82% 16%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 149 77% 37%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 213 19% 97%;
+    --secondary-foreground: 210 82% 16%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 213 19% 97%;
+    --muted-foreground: 210 22% 35%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 137 38% 73%;
+    --accent-foreground: 210 82% 16%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 213 19% 91%;
+    --input: 213 19% 91%;
+    --ring: 149 77% 37%;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +108,47 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter;
+  }
+}
+
+/* Google Fonts - Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* Custom Components */
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 rounded-xl font-semibold transition-all duration-200 hover:translate-y-[-2px] hover:shadow-lg;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-3 rounded-xl font-semibold transition-all duration-200 hover:translate-y-[-2px] hover:shadow-lg;
+  }
+  
+  .btn-navy {
+    @apply bg-[hsl(var(--metandis-navy))] text-white hover:bg-[hsl(var(--metandis-navy))]/90 px-8 py-3 rounded-xl font-semibold transition-all duration-200 hover:translate-y-[-2px] hover:shadow-lg;
+  }
+
+  .card-hover {
+    @apply transition-all duration-200 hover:translate-y-[-2px] hover:shadow-lg;
+  }
+
+  .fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .section-container {
+    @apply max-w-screen-xl mx-auto px-6 md:px-12 lg:px-16;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
