@@ -1,5 +1,5 @@
 import { Linkedin } from 'lucide-react';
-import metandisLogo from '@/assets/metandis-logo.svg';
+import logo from '/assets/logo.svg';
 
 const Footer = () => {
   const scrollToSection = (sectionId: string) => {
@@ -15,7 +15,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Logo and Description */}
           <div className="lg:col-span-2">
-            <img src={metandisLogo} alt="Metandis" className="h-10 w-auto mb-6 filter brightness-0 invert" />
+            <img src={logo} alt="Metandis" className="h-10 w-auto mb-6 filter brightness-0 invert" />
             <p className="text-white/80 mb-6 max-w-md">
               Software de gestión integral para plantas de biogás. 
               Trazabilidad, documentación y operación unificadas.

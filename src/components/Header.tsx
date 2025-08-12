@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
-import metandisLogo from '@/assets/metandis-logo.svg';
+import logo from '/assets/logo.svg';
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -19,7 +19,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <img src={metandisLogo} alt="Metandis" className="h-10 w-auto" />
+            <img src={logo} alt="Metandis" className="h-10 w-auto" />
           </div>
 
           {/* Desktop Navigation */}

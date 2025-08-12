@@ -9,6 +9,8 @@ import CTABanner from '@/components/CTABanner';
 import FAQSection from '@/components/FAQSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
+import TrazabilidadSection from '@/components/TrazabilidadSection';
+import DocumentacionSection from '@/components/DocumentacionSection';
 
 const Index = () => {
   useEffect(() => {
@@ -42,6 +44,8 @@ const Index = () => {
       <main>
         <Hero />
         <ProductSection />
+        <TrazabilidadSection />
+        <DocumentacionSection />
         <HowItWorksSection />
         <BenefitsSection />
         <IntegrationsSection />
