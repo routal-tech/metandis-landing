@@ -5,7 +5,9 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: mode === 'production' ? '/metandis-landing/' : '/',
+  // Use root base when deploying to custom domain. Override with VITE_APP_BASE if needed.
+  // For GitHub project page without custom domain you can set VITE_APP_BASE=/metandis-landing/ (e.g. via env in workflow)
+  base: process.env.VITE_APP_BASE || '/',
   server: {
     host: "::",
     port: 8080,

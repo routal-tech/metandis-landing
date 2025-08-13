@@ -11,62 +11,64 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Metandis Brand Colors */
-    --metandis-navy: 210 82% 16%;      /* #0B2242 */
-    --metandis-green: 149 77% 37%;     /* #1BAA64 */
-    --sage: 137 38% 73%;               /* #9CCFAD */
-    --slate: 210 22% 35%;              /* #4A5B6C */
-    --off-white: 213 19% 97%;          /* #F6F7F9 */
+    /* Metandis Brand Colors (actualizados) */
+    --metandis-navy: 216 65% 11%;          /* #0A192F (antes 210 82% 16%) */
+    --metandis-green: 149 77% 37%;         /* Conservado como verde profundo corporativo */
+    --brand-green-bright: 144 73% 55%;     /* #38E07B (primary actual) */
+    --sage: 137 38% 73%;                   /* #9CCFAD */
+    --slate: 210 22% 35%;                  /* #4A5B6C */
+    --off-white: 213 19% 97%;              /* #F6F7F9 */
 
-    /* Base Design System */
+    /* Hero specific / neutrals derivados de interfaz previa */
+    --hero-bg: 216 65% 11%;                /* Igual que navy */
+    --hero-text: 0 0% 96%;                 /* #F5F5F5 */
+    --hero-muted: 154 10% 67%;             /* #A3B3AC */
+    --blue-gray: 225 20% 61%;              /* #8892B0 */
+
+    /* Base Design System (ajustado primary) */
     --background: 213 19% 97%;
-    --foreground: 210 82% 16%;
+    --foreground: 216 65% 11%;
 
     --card: 0 0% 100%;
-    --card-foreground: 210 82% 16%;
+    --card-foreground: 216 65% 11%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 82% 16%;
+    --popover-foreground: 216 65% 11%;
 
-    --primary: 149 77% 37%;
-    --primary-foreground: 0 0% 100%;
+    /* Primary pasa a usar el verde brillante; foreground oscuro para contraste AA */
+    --primary: 144 73% 55%;
+    --primary-foreground: 216 65% 11%;
 
     --secondary: 213 19% 97%;
-    --secondary-foreground: 210 82% 16%;
+    --secondary-foreground: 216 65% 11%;
 
     --muted: 213 19% 97%;
     --muted-foreground: 210 22% 35%;
 
     --accent: 137 38% 73%;
-    --accent-foreground: 210 82% 16%;
+    --accent-foreground: 216 65% 11%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 213 19% 91%;
     --input: 213 19% 91%;
-    --ring: 149 77% 37%;
+    --ring: 144 73% 55%;
 
     --radius: 1rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
+    /* Sin cambios por ahora */
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
 
@@ -106,49 +108,18 @@ All colors MUST be HSL.
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground font-inter;
-  }
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground font-inter; }
 }
 
 /* Custom Components */
 @layer components {
-  .btn-primary {
-    @apply bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 rounded-xl font-semibold transition-all duration-200 hover:translate-y-[-2px] hover:shadow-lg;
-  }
-  
-  .btn-outline {
-    @apply border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-3 rounded-xl font-semibold transition-all duration-200 hover:translate-y-[-2px] hover:shadow-lg;
-  }
-  
-  .btn-navy {
-    @apply bg-[hsl(var(--metandis-navy))] text-white hover:bg-[hsl(var(--metandis-navy))]/90 px-8 py-3 rounded-xl font-semibold transition-all duration-200 hover:translate-y-[-2px] hover:shadow-lg;
-  }
-
-  .card-hover {
-    @apply transition-all duration-200 hover:translate-y-[-2px] hover:shadow-lg;
-  }
-
-  .fade-in {
-    animation: fadeIn 0.6s ease-out forwards;
-  }
-
-  .section-container {
-    @apply max-w-screen-xl mx-auto px-6 md:px-12 lg:px-16;
-  }
+  .btn-primary { @apply bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 rounded-xl font-semibold transition-all duration-200 hover:translate-y-[-2px] hover:shadow-lg shadow-primary/25; }
+  .btn-outline { @apply border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-3 rounded-xl font-semibold transition-all duration-200 hover:translate-y-[-2px] hover:shadow-lg; }
+  .btn-navy { @apply bg-[hsl(var(--metandis-navy))] text-[hsl(var(--off-white))] hover:bg-[hsl(var(--metandis-navy))]/90 px-8 py-3 rounded-xl font-semibold transition-all duration-200 hover:translate-y-[-2px] hover:shadow-lg; }
+  .card-hover { @apply transition-all duration-200 hover:translate-y-[-2px] hover:shadow-lg; }
+  .fade-in { animation: fadeIn 0.6s ease-out forwards; }
+  .section-container { @apply max-w-screen-xl mx-auto px-6 md:px-12 lg:px-16; }
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px);} to { opacity:1; transform: translateY(0);} }

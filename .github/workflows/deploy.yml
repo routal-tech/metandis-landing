@@ -31,7 +31,13 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build
+  # If using GitHub project page URL instead of custom domain, set env VITE_APP_BASE to /metandis-landing/
+  # env:
+  #   VITE_APP_BASE: /metandis-landing/
+        run: |
+          npm run build
+          # Create SPA fallback (GitHub Pages serves 404.html for unknown paths)
+          cp dist/index.html dist/404.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
