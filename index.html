@@ -11,9 +11,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Metandis</title>
     <meta property="og:image" content="og-image.jpg" />
+    <script>
+      // Redirige automáticamente si llegan URLs antiguas con /metandis-landing/
+      (function(){
+        var legacy = '/metandis-landing';
+        if (location.pathname.startsWith(legacy + '/')) {
+          var newPath = location.pathname.replace(legacy, '') || '/';
+          var target = location.origin + newPath + location.search + location.hash;
+          location.replace(target);
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="src/main.tsx"></script>
+  <!-- Vite will rewrite this to the built JS bundle in production -->
+  <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
